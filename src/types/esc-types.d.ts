@@ -489,12 +489,56 @@ export interface IescLink {
   ariaLabel?: string;
 }
 
+export interface IFetchPostParams {
+  contentType: string;
+  limit: number;
+  include: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | undefined;
+  slugPost: string;
+}
+
+export interface IPostDetails {
+  reactComponentPath: string | null;
+  id: string;
+  name: string | undefined;
+  contentType: string | undefined;
+  postName: string | null;
+  postSlugParent: string | null;
+  postSlug: string | null;
+  pageTitle: string | null;
+  pageMetadescription: string | null;
+  pageKeywords: string | null;
+  ogTitle: string | null;
+  ogDescription: string | null;
+  ogImage: string | null;
+  postPrimaryImage: string | null;
+  postPrimaryImageAltText: string | null;
+  postTitle: string | null;
+  postSubtitle: string | null;
+  postDate: string | null;
+  postAuthor: string | null;
+  postText: string | null;
+  postCategories: IPostCategory[] | null;
+  postCategoriesList: string[] | null;
+  postACL: string | null;
+  postClassName: string;
+  postID: string | null;
+  postRendererID: string | null;
+  postRendererClassName: string;
+  postRendererACL: string | null;
+  postRendererEntries: unknown[] | null;
+  postTemplateID: string | null;
+  postTemplateContents: unknown;
+  postRelatedPosts: unknown[] | null;
+  postEntries: unknown[] | null;
+  postClassNames: string;
+}
+
 export interface IescPost {
   id: string;
   name: string;
   postName?: string;
   postID?: string;
-  postClassName?: string;
+  postClassNames?: string;
   postSlugParent?: string;
   postSlug?: string;
   ogDescription?: string;

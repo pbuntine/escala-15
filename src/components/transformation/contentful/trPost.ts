@@ -1,15 +1,28 @@
 import { transformEntries } from "./trEntries";
-import { IPost } from "../../../types/cf-types";
+import { Entry } from "contentful";
+import {
+  IPost,
+  IPostCategory,
+  IPostCategoryFields,
+} from "../../../types/cf-types";
 import { fetchCFJSON } from "../../extraction/contentful/fetchCFData";
 import { parseTemplate } from "./trTemplates";
+import { IPostDetails } from "../../../types/esc-types";
+// import { IPostSummary } from "../../../types/esc-types";
+// import { IPostPaths } from "../../../types/esc-types";
+import { IFetchPostParams } from "../../../types/esc-types";
 
-export const getPost = async (slugPost) => {
-  const objPost: IPost = await fetchCFJSON({
+export const getPost = async (
+  slugPost: string
+): Promise<IPostDetails | null> => {
+  const params: IFetchPostParams = {
     contentType: "post",
     limit: 1,
     include: 5,
     slugPost: slugPost,
-  });
+  };
+
+  const objPost: IPost = await fetchCFJSON(params);
   if (!objPost.total) {
     const postDetails = null;
     return postDetails;
@@ -22,23 +35,61 @@ export const getPost = async (slugPost) => {
   return postDetails;
 };
 
-export function transformPost(entry: IPost) {
+export function transformPost(
+  entry: IPost & {
+    fields: {
+      postCategories?: IPostCategory[];
+      renderer?: {
+        fields?: {
+          entries?: unknown[];
+          className?: string;
+          acl?: string;
+          reactComponentPath?: string;
+        };
+      };
+      entries?: unknown[];
+      relatedPosts?: IPost[];
+      template?: { sys?: { id?: string } };
+      date?: string;
+      className?: string;
+      slugParent?: string;
+      slugPost?: string;
+      pagetitle?: string;
+      metadescription?: string;
+      keywords?: string;
+      ogtitle?: string;
+      ogdescription?: string;
+      ogimage?: { fields?: { file?: { url?: string } } };
+      primaryimage?: { fields?: { file?: { url?: string } } };
+      primaryimagealttext?: string;
+      title?: string;
+      subtitle?: string;
+      author?: { fields?: { title?: string } };
+      text?: string;
+      acl?: string;
+      id?: string;
+    };
+  }
+) {
   let postCategories = null;
   const postCategoriesList = [];
   if (entry.fields?.postCategories?.length) {
-    postCategories = transformEntries(entry.fields.postCategories);
+    postCategories = transformEntries(
+      entry.fields.postCategories as unknown as Entry[]
+    );
     // console.log("postCategories");
     // console.log(postCategories);
     for (let i = 0; i < postCategories?.length; i++) {
-      postCategoriesList[i] = postCategories[i].postcategoryTitle;
+      postCategoriesList[i] =
+        (postCategories[i] as IPostCategory).fields?.title || "";
     }
-  } else {
-    postCategories = null;
   }
 
   let rendererEntries = null;
   if (entry.fields?.renderer?.fields?.entries?.length) {
-    rendererEntries = transformEntries(entry.fields.renderer?.fields?.entries);
+    rendererEntries = transformEntries(
+      entry.fields.renderer?.fields?.entries as Entry[]
+    );
   } else {
     rendererEntries = null;
   }

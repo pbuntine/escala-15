@@ -16,7 +16,7 @@ export default function RelatedPost({ item }: { readonly item: IescPost }) {
   const post = item;
 
   const postClassNames =
-    "relatedPost " + post?.postClassName + " " + post?.postRendererClassName;
+    "relatedPost " + post?.postClassNames + " " + post?.postRendererClassName;
 
   const postURL = "/" + post?.postSlugParent + "/" + post?.postSlug;
   // TODO: Remove hardcoding of image sizes!!

@@ -2,8 +2,7 @@ import ReactMarkdown from "react-markdown";
 import Entries from "../entries/prEntries";
 import Image from "next/image";
 import React from "react";
-import { IescPost } from "../../../types/esc-types";
-import { Ientry } from "../../../types/esc-types";
+import { IescPost , Ientry } from "../../../types/esc-types";
 
 // Explanation:
 // This is called for each post by the DynamicRenderer from:
@@ -12,7 +11,7 @@ import { Ientry } from "../../../types/esc-types";
 // - Related Posts.
 // - Additional entries.
 
-export default function DefaultPost({ item }: { item: IescPost }) {
+export default function DefaultPost({ item }: Readonly<{ item: IescPost }>) {
   // TODO: Remove hardcoding of image sizes!!
   let imageSourceDetail = "";
   if (item?.postPrimaryImage) {
@@ -21,7 +20,7 @@ export default function DefaultPost({ item }: { item: IescPost }) {
   }
 
   return (
-    <div id={item.name} key={item.id} className={item.postClassName}>
+    <div id={item.name} key={item.id} className={item.postClassNames}>
       <div id={item?.name} key={item?.id} className="contentTextWrapper">
         {/* <div id="postDate" className="postDate">
           {item?.postDate}
