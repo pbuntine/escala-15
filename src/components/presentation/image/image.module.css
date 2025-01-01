@@ -1,0 +1,4 @@
+/* Not used - but an approach worth investigating and considering */
+.unsizedImage {
+    width: fit-content;
+}

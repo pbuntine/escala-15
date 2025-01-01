@@ -1,0 +1,21 @@
+.wrapper404message {
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper404message h1 {
+  padding: 20px;
+}
+
+.wrapper404message a {
+  padding: 20px;
+}
+
+.wrapper404message .message404 {
+  padding: 20px;
+}

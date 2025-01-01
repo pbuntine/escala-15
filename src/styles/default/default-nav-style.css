@@ -1,0 +1,187 @@
+/* ======================== */
+/* Default - Nav-bar styles */
+/* ======================== */
+/* https://nextjs.org/docs/basic-features/built-in-css-support */
+/* 
+==================================
+Navigation bar style 
+==================================
+*/
+
+.navLink {
+  font: var(--nav-links-font);
+  color: var(--nav-links-color);
+  text-align: left;
+  letter-spacing: 0px;
+  opacity: 1;
+  text-decoration: none !important;
+}
+
+/* wrapperHeader
+---
+*/
+
+.wrapperHeader {
+  /* overflow: hidden;  */
+  /* position: sticky; Set the navbar to fixed position in its container */
+  top: 0; /* Position the navbar at the top of the page */
+  width: 100%; /* Full width */
+  background-color: var(--wrapperHeader-background);
+  align-items: start;
+  padding: 17px;
+}
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+/* @media only screen and (min-width: 992px) {
+  .wrapperHeader {
+    height: 100px; sets height if you want more than the minimum
+  }
+} */
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+/* @media (max-width: 991.98px) {
+  .wrapperHeader {
+   height: 88px; sets height if you want more than the minimum 
+  }
+} */
+
+/* Logo in top-nav
+  ---
+  */
+
+/* .navLogo img {
+   margin-left: 10px; Just to get it out of the gutter 
+} */
+
+.navLogo {
+  display: flex;
+ align-self: center; 
+}
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+@media only screen and (min-width: 992px) {
+
+  .navlinksWrapper {
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .navlinksWrapper .linkWrapper {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+@media (max-width: 991.98px) {
+  /* .navLogo img {
+    width: 100%;
+    height: auto;
+  } */
+}
+
+/* Hamburger & controls
+  ---
+  */
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+@media only screen and (min-width: 992px) {
+  .wrapperHeader .hamburger {
+    display: none;
+  }
+}
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+@media (max-width: 991.98px) {
+  .wrapperHeader {
+    height: 100%;
+  }
+
+  .navlinksWrapper {
+    flex-direction: column;
+  }
+}
+
+/* navlinksWrapper (collection of navLinks)
+  ---
+  */
+
+.navlinksWrapper {
+  justify-content: space-between;
+}
+
+/* If you want a hover affect... */
+.navlinksWrapper a:hover {
+  color: var(--navlinks-hover_color);
+}
+
+.navLink.active {
+  color: var(--navlinks-active_color);
+}
+
+.navlinksWrapper a {
+  cursor: pointer;
+  padding: 0;
+}
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+@media only screen and (min-width: 992px) {
+  .navlinksWrapper {
+    flex-direction: row;
+    align-self: center;
+  }
+}
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+@media (max-width: 991.98px) {
+  .wrapperHeader {
+    padding: 10px;
+  }
+
+  .navlinksWrapper {
+    flex-direction: column;
+  }
+  .dropNav {
+    align-items: end;
+    margin-top: 50px;
+  }
+
+  .navLogo img {
+    margin-left: 0px;
+  }
+
+  #hamburger {
+    justify-self: end;
+    cursor: pointer;
+  }
+  #hamburger-x {
+    justify-self: end;
+    cursor: pointer;
+  }
+}
+
+/* navLink (each nav item listed)
+  ---
+  */
+
+

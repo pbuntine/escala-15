@@ -1,0 +1,189 @@
+/* ======================= */
+/* Default - Footer styles */
+/* ======================= */
+/*
+wrapperFooter is hard coded in the footer component.
+The contents of the footer are entries in the Footer Entries field of the page template.
+CSS for the following expected sections within wrapperFooter are in this file:
+1. mainFooter
+    - logo
+    - footerLinksBlock
+      - footerLinks
+2. footerBase
+
+*/
+
+/* === wrapperFooter === */
+.wrapperFooter {
+  background-color: var(--footer-wrapper_background-color);
+  padding: 33px;
+}
+
+@media (max-width: 767.98px) {
+  .wrapperFooter {
+    padding: 10px;
+  }
+}
+
+/* --- Logo --- */
+.wrapperFooter .logo img {
+  flex: 1;
+}
+
+@media (max-width: 767.98px) {
+  .wrapperFooter .logo img {
+    padding: none;
+  }
+}
+
+/* .wrapperFooter .title {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  } */
+
+/* === Footer Links block === */
+
+.footer-links-block {
+  flex: 4;
+  /* padding-left: 30px; */
+  padding-bottom: 30px;
+}
+
+.footer-links-block.standard-content .title {
+  font: var(--footerLinksBlockTitle);
+  color: var(--footer-titles-color);
+  letter-spacing: 0px;
+  opacity: 1;
+  margin-bottom: 15px;
+}
+
+/* === Footer-Links === */
+a.footer-link {
+  color: var(--footer-links-color);
+  font: var(--footer-links);
+  text-decoration: none;
+  padding: 10px 0px;
+}
+
+.footer-links .icon-social {
+  margin-right: 22px;
+}
+
+.footer-links .icon-text span:first-child,
+.footer-links .icon-map span:first-child {
+  padding-right: 5px;
+}
+
+.footer-link .label {
+  font: var(--footer-links);
+  color: var(--footer-links-color);
+  text-align: left;
+  letter-spacing: 0px;
+  opacity: 1;
+  padding-top: 9px;
+}
+
+/* .mainFooter {
+  margin-left: 165px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 210px));
+  justify-content: start;
+} */
+
+.footerMain {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+}
+
+/* @media (min-width: 768px) {
+  a.footer-link {
+    font: var(--footer-links);
+    text-decoration: none;
+    padding: 10px 0px;
+  }
+}
+@media (max-width: 767.98px) {
+  a.footer-link {
+    font: var(--footer-links-mob);
+    padding: 10px 0px;
+  }
+} */
+
+/* copyrightText 
+================ */
+.copyrightText .contentTextWrapper {
+  padding: 30px 0px;
+}
+
+.copyrightText .contentTextWrapper p {
+  padding: 0px 0px;
+  margin: 0px;
+}
+
+/* footer-credits 
+================= */
+.footer-credit {
+  font-size: 1rem;
+}
+
+.footer-credits {
+  display: flex;
+  justify-items: flex-end;
+}
+
+#footer-credits .contentEntries {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  grid-gap: 1rem;
+}
+
+/* footerBase 
+================= */
+.footerBase {
+  font-size: 1rem;
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: stretch;
+  align-items: baseline;
+  align-content: stretch;
+  justify-content: space-between;
+}
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+@media (min-width: 992px) {
+  /* --- >992 --- */
+}
+
+@media (max-width: 991.8px) {
+  /* --- <992 --- */
+  .footerBase {
+    grid-auto-flow: row;
+  }
+  #footer-credits .contentEntries {
+    align-items: flex-start;
+  }
+}
+
+/* Copyright */
+/* --------- */
+/* Commonly expected elements - but not hardcoded */
+.footer-credit {
+  font: var(--footer-copyRight);
+  color: var(--footer-copyRight-color);
+  text-align: left;
+  text-decoration: underline;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+.standard-content.copyrightText  .text1 p {
+  font: var(--footer-copyRight);
+  color: var(--footer-copyRight-color);
+  text-align: left;
+  letter-spacing: 0px;
+  opacity: 1;
+}

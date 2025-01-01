@@ -1,0 +1,13 @@
+/* === cookie-consent === */
+.CookieConsent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;  
+}

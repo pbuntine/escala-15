@@ -1,0 +1,327 @@
+/* ===================== */
+/* Default - Post styles */
+/* ===================== */
+.postCategories {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 15px;
+}
+
+.filter-by {
+  display: flex;
+
+}
+
+.filter-by .contentTextWrapper{
+  padding-right: 15px;
+}
+
+.postcategoryWrapper {
+  color: gray;
+  padding-right: 20px;
+  /* text-decoration: none; */
+}
+
+.postListCategories {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.category-list-item.active {
+  color: black;
+}
+
+/* =========================================================== */
+/* Fonts  https://www.w3schools.com/css/css_font_shorthand.asp */
+/* =========================================================== */
+
+.postTitle {
+  font: var(--postTitle);
+  padding: 10px 0px;
+}
+
+.postSubtitle {
+  font: var(--postSubtitle);
+}
+
+.postText {
+  font: var(--postText);
+}
+
+.postText h2 {
+  font: var(--postTextH2);
+}
+
+.postText h3 {
+  font: var(--postTextH3);
+}
+
+.postDate {
+  font: var(--postDate);
+}
+
+.postDate::before {
+  content: "Updated on ";
+}
+
+.postAuthor {
+  font: var(--postAuthor);
+}
+
+.postAuthor::before {
+  content: "Written by ";
+}
+
+.postDescription {
+  font: var(--postDescription);
+}
+
+.postCategories {
+  font: var(--postCategories);
+}
+
+.postCategoryList-title {
+  font: var(--postCategoryList-title);
+}
+
+.postPage-backlink {
+  font: var(--breadcrumb);
+  color: var(--breadcrumb-color);
+  text-transform: capitalize;
+  text-decoration: none;
+}
+
+.postPage-backlink::before {
+  content: "< ";
+}
+
+/* ------------- */
+/* Posts listing */
+/* ------------- */
+
+.postsListing .postTitle {
+  font: var(--postTitle-list);
+}
+
+.postsListing .postDescription {
+  font: var(--postDescription-list);
+  text-decoration: none;
+}
+
+.postsListing .postText {
+  display: none;
+}
+
+.postsListing .postSubtitle {
+  display: none;
+}
+
+.postsListing .postDate {
+  display: none;
+}
+
+.postsListing .postText {
+  display: none;
+}
+
+.relatedPostsTitle {
+  font: var(--relatedPostsTitle);
+  border-top: solid 0.1em gray;
+}
+
+.relatedPostsWrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+  justify-content: space-between;
+  grid-gap: 40px;
+  gap: 40px;
+}
+
+.relatedPost {
+  text-decoration: none;
+  color: #000;
+}
+
+.relatedPost .relatedPostPrimaryImage {
+  width: -webkit-fill-available;
+  height: unset;
+  border-radius: 20px;
+}
+
+.relatedPostTitle {
+  font: var(--relatedPostTitle);
+  padding: 10px 0px;
+}
+
+.category-list-item {
+  font: var(--category-list-item);
+}
+
+/* =========================================================== */
+
+.post-category-list {
+  width: 165px;
+  background: rgb(249, 249, 249);
+  border: #f0f0f0;
+  border-left-style: solid;
+}
+
+.posts-wrapper .contentTextWrapper .title {
+  width: 100%;
+  background: rgb(249, 249, 249);
+  border: #f0f0f0;
+  border-left-style: solid;
+  border-top-style: solid;
+  margin: 0px;
+}
+
+.postsListing {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(195px, 390px)); */
+  justify-content: space-around;
+  gap: 40px;
+  /* padding: 20px;  */
+}
+
+.scPostsListing {
+  justify-content: space-around;
+  gap: 40px;
+  border: 1px;
+}
+
+.postsListing .post {
+  /* display: grid; */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  /* margin: 42px; */
+  height: auto;
+  width: auto;
+  text-decoration: none;
+  color: black;
+}
+
+.postBody .postPrimaryImage {
+  width: 100%;
+  height: auto;
+  /* margin: 2% 10%;
+  border-radius: 31px; */
+}
+
+.postsListing .postPrimaryImage {
+  width: 100%;
+  height: auto;
+  /* border-top-right-radius: 31px;
+  border-top-left-radius: 31px; */
+}
+
+.postText p img {
+  width: 50%;
+  margin: 5% 25%;
+}
+
+.postText blockquote {
+  background-color: var(--postText-Blockquote);
+
+  margin: 0;
+  padding: 5px 20px;
+}
+
+.post .postEntries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.post .postEntries .noClassName {
+  margin: 0px 20px 60px 20px !important;
+}
+
+.postRelatedPosts .postSummary img {
+  width: 400px;
+}
+
+.postRelatedPosts .postSummary {
+  display: grid;
+  width: 80%;
+}
+
+/* =========================== */
+/* Post and Magazine patterns  */
+/* =========================== */
+@media only screen and (min-width: 992px) {
+  /* --- >992 --- */
+  .posts-wrapper {
+    padding: 20px 20px;
+  }
+
+  .post.magazine .contentTextWrapper {
+    padding: 20px 10%;
+  }
+
+  .relatedPostsSectionWrapper {
+    padding: 20px 10%;
+  }
+
+  .postSummaryTextWrapper {
+    padding: 0px 30px;
+  }
+
+  .postsListing .postTitle {
+    padding: 20px 0px;
+  }
+
+  .postsListing .ogDescription {
+    padding: 20px 0px;
+  }
+
+  .postBreadcrumbs {
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 991.8px) {
+  /* --- <992 --- */
+
+  .posts-wrapper {
+    padding: 15px 15px;
+  }
+
+  /* Category list */
+  .post-category-list {
+    display: none;
+  }
+
+  /* Posts */
+  /* .postsListing {
+    padding: 15px;
+  } */
+
+  .postSummaryTextWrapper {
+    padding: 0px 10px;
+  }
+
+  .postsListing .postTitle {
+    padding: 12px 0px;
+  }
+
+  .postListCategories {
+    padding-bottom: 20px;
+  }
+
+  .relatedPostsSectionWrapper {
+    padding: 0px 10px 10px;
+  }
+
+  .postBody .postPrimaryImage {
+    width: 100%;
+    height: auto;
+    margin: unset;
+    border-radius: unset;
+  }
+
+  .postBreadcrumbs {
+    padding: 20px 0 0 20px;
+  }
+}

@@ -1,0 +1,220 @@
+/* ================================= */
+/* Default - Standard content layout */
+/* ================================= */
+
+.layout_text-only {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-gap: 0;
+  grid-template-areas: "grid_text";
+}
+
+.layout_text-above-image {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "grid_text"
+    "grid_entries";
+}
+
+.layout_image-above-text {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "grid_entries"
+    "grid_text";
+}
+
+.contentEntries {
+  display: grid;
+}
+
+.listBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+/* TODO: Most of this doesn't chnage.  Only change what is necessary. */
+@media only screen and (min-width: 992px) {
+  /* --- >992 --- */
+
+  .layout_blank-then-text {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 1fr;
+    /* grid-gap: 2vw; */
+    grid-template-areas: "blank grid_text";
+  }
+
+  .layout_text-then-blank {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 1fr;
+    /* grid-gap: 2vw; */
+    grid-template-areas: "grid_text blank";
+  }
+
+  .layout_image-then-text {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 1fr;
+    /* grid-gap: 2vw; */
+    grid-template-areas: "grid_entries grid_text";
+  }
+
+  .layout_text-then-image {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 50% 1fr;
+    /* grid-gap: 2vw; */
+    grid-template-areas: "grid_text grid_entries";
+  }
+
+  /* --- 
+
+  .contentEntries {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+  
+  */
+}
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+@media (max-width: 991.98px) {
+  .layout_text-then-image {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    /* grid-gap: 2vw; */
+    grid-template-areas:
+      "grid_entries"
+      "grid_text";
+  }
+
+  .layout_image-then-text {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "grid_entries"
+      "grid_text";
+  }
+
+  /* .contentEntries {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+  } */
+}
+
+/* ============================ */
+/* Place text and image in grid */
+/* ============================ */
+
+.contentTextWrapper {
+  grid-area: grid_text;
+}
+
+.contentEntries {
+  grid-area: grid_entries;
+}
+
+/* ======================= */
+/* standard grid patterns  */
+/* ======================= */
+/* https://css-tricks.com/look-ma-no-media-queries-responsive-layouts-using-css-grid/ */
+
+.contentEntries {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* grid-gap: 1rem; */
+}
+
+.single-col .contentEntries {
+  grid-template-columns: 1fr;
+  /* grid-gap: 1rem; */
+}
+
+.two-cols_gutter .contentEntries {
+  grid-template-columns: auto 1fr;
+}
+
+/* ================== */
+/* 2x2 grid patterns  */
+/* ================== */
+@media only screen and (min-width: 992px) {
+  /* --- >992 --- */
+
+  .grid-4 .contentEntries {
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+  }
+}
+
+@media only screen and (max-width: 991.8px) {
+  /* --- <992 --- */
+
+  .grid-4 .contentEntries {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  }
+}
+
+/* ================== */
+/* 1x2 grid patterns  */
+/* ================== */
+
+.two-col-grid .contentEntries {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  /* grid-gap: 20px; */
+  grid-template-areas: "a1 a2 ";
+}
+
+/* =============================================== */
+/* Other grid patterns - for manual implementation */
+/* =============================================== */
+
+.r2c6 {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 0;
+  grid-template-areas:
+    "a1 a2 a3 a4 a5 a6"
+    "b1 b2 b3 b4 b5 b6";
+}
+
+.r2c12 {
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 0;
+  justify-items: center;
+}
+
+.contentEntries .entries_flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.entries_flex-column > contentEntries {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}

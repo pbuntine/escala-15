@@ -1,0 +1,61 @@
+/* ===================== */
+/* Default - Page layout */
+/* ===================== */
+/* Standard Page Template layout 
+===
+*/
+/* Should be called l-bodyWrapper (etc.) so we know it is a layout */
+
+/* Note
+  __height: 100vh;__ does not work on mobile devices that use webkit for rendering.
+https://ilxanlar.medium.com/you-shouldnt-rely-on-css-100vh-and-here-s-why-1b4721e74487 */
+
+.bodyWrapper {
+  min-height: 100vh; /* fall-back */
+  min-height: -moz-available;
+  min-height: -webkit-fill-available;
+  min-height: stretch;
+}
+
+.bodyWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "header"
+    "main";
+}
+
+.navigation-bar {
+  grid-area: header;
+}
+
+.pageWrapper {
+  grid-area: main;
+  /* overflow: auto !important; */
+}
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+/* @media only screen and (min-width: 992px) {
+    .pageWrapper {
+      margin-top: 72px;  not required
+    }
+  } */
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+/* @media only screen and (max-width: 991.98px) {
+  
+    .pageWrapper {
+      margin-top: 140px;  not required
+    }
+  }
+    */
+
+.wrapperFooter {
+  grid-area: footer;
+}

@@ -1,0 +1,23 @@
+@import "./default/default-base.css";
+@import "./default/default-footer-layout.css";
+@import "./default/default-footer-style.css";
+@import "./default/default-nav-layout.css";
+@import "./default/default-nav-style.css";
+@import "./default/default-page-layout.css";
+@import "./default/default-post-layout.css";
+@import "./default/default-post-style.css";
+@import "./default/default-standardcontent-layout.css";
+@import "./default/default-standardcontent-style.css";
+@import "./default/default-image-layout.css";
+@import "./default/default-image-style.css";
+@import "./default/default-tables.css";
+@import "./default/default-carousel.css";
+@import "./default/default-link-layout.css";
+@import "./default/default-link-style.css";
+@import "./default/default-cookieconsent-layout.css";
+@import "./default/default-cookieconsent-style.css";
+@import "./default/default-index.css";
+@import "./default/default-404.css";
+
+/* @import "./default/default-500.css";
+@import "./default/default-503.css"; */

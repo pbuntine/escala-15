@@ -1,0 +1,44 @@
+/* === Tables === */
+
+/* === 2 Col Table === */
+.table {
+  display: grid;
+  border-top: 1px solid black;
+  border-right: 1px solid black;
+  margin: var(--standard-margin);
+}
+
+.table3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.table4col {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.table5col {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.table6col {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.table7col {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.table > span {
+  padding: 8px 4px;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.table-full-width {
+  width: 100%;
+}
+
+span.header {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}

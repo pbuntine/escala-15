@@ -1,0 +1,83 @@
+/* ======================== */
+/* Default - Nav-bar layout */
+/* ======================== */
+
+.wrapperHeader {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: auto auto auto;
+  grid-template-areas: "logo nav controls";
+  justify-items: stretch;
+}
+
+/* -------------------------- */
+/* Full-sized desktop screens */
+/*  (or until nav wraps)      */
+/* -------------------------- */
+@media only screen and (min-width: 992px) {
+  .wrapperHeader {
+  }
+  .nav-grid {
+    grid-area: nav;
+  }
+
+  .dropNav {
+    display: none;
+  }
+  .topNav {
+    display: flex;
+  }
+  #hamburger {
+    display: none;
+  }
+  #hamburger-x {
+    display: none;
+  }
+}
+
+/* --------------------------------- */
+/* < 992: Typically tablets or phone */
+/* --------------------------------- */
+@media (max-width: 991.98px) {
+  .wrapperHeader {
+    grid-template-columns: auto 1fr;
+  }
+
+  .nav-grid {
+    grid-area: controls;
+  }
+
+  .active-hamburger {
+    transform: rotate(90deg);
+    transition: all .5s;
+  }
+
+  .default-hamburger {
+    transition: all .5s;
+  }
+
+  .dropNav {
+    display: flex;
+  }
+  .topNav {
+    display: none;
+  }
+  #hamburger {
+    display: block;
+  }
+  #hamburger-x {
+    display: block;
+  }
+}
+
+/* --------------- */
+/* what goes where */
+/* --------------- */
+
+.logo-grid {
+  grid-area: logo;
+}
+
+.controls-grid {
+  grid-area: controls;
+}

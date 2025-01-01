@@ -1,0 +1,18 @@
+/* ===================== */
+/* Default - Post layout */
+/* ===================== */
+.scPostsListings {
+  display: grid;
+}
+
+.postCategoriesList {
+  display: grid;
+
+}
+
+
+
+.postBody {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}

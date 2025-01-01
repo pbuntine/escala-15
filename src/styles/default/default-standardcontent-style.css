@@ -1,0 +1,293 @@
+/* ================================= */
+/* Default - Standard content styles */
+/* ================================= */
+/* Consists of the following elements:
+- ContentWrapper
+  - Title
+  - Subtitle
+  - Text1
+  - Text2
+- Entries
+  - Image
+*/
+
+/* 
+==========================
+ContentWrapper
+==========================
+
+Fonts and Colors
+----------------
+*/
+/* TODO: To each of the following :
+/* TODO: - Add .standard-content */
+/* TODO: - Add color variables */
+
+.standard-content .title {
+  font: var(--text1-H1);
+  color: var(--text1-H1-color);
+  padding: var(--standard-content-title-padding);
+}
+
+.standard-content .subtitle {
+  font: var(--subtitle);
+  color: var(--subtitle-color);
+  padding: var(--standard-content-subtitle-padding);
+}
+
+.standard-content .text1 h1 {
+  font: var(--text1-H1);
+  color: var(--text1-H1-color);
+  padding: var(--standard-content-H1-padding);
+}
+
+.standard-content .text1 h2 {
+  font: var(--text1-H2);
+  color: var(--text1-H2-color);
+  padding: var(--standard-content-H2-padding);
+}
+
+.standard-content .text1 h3 {
+  font: var(--text1-H3);
+  color: var(--text1-H3-color);
+  padding: var(--standard-content-H3-padding);
+}
+
+.standard-content .text1 p {
+  font: var(--text1-p);
+  color: var(--text1-p-color);
+  padding: var(--standard-content-text1-padding);
+}
+
+.standard-content .text1 li {
+  font: var(--text1-p);
+  color: var(--text1-p-color);
+  padding: var(--standard-content-text1-padding);
+}
+
+/* ??????????????????????????????????????????????????????????? */
+/* Fonts  https://www.w3schools.com/css/css_font_shorthand.asp */
+/* ??????????????????????????????????????????????????????????? */
+
+/* =========================================================== */
+
+.standard-content .text ul {
+  margin-bottom: 1rem;
+}
+
+.text_center-align .contentTextWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Not sure why this is required.  Maybe delete the span. */
+.text_center-align .contentTextWrapper .title {
+  align-self: center;
+  text-align: center;
+}
+
+.text_center-align .contentTextWrapper .text1 {
+  align-self: center;
+  text-align: center;
+}
+
+.contentTextWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_left-align .contentTextWrapper {
+  align-items: flex-start;
+  justify-self: baseline;
+}
+
+.text_left-align-center .contentTextWrapper {
+  justify-self: baseline;
+  justify-content: center;
+}
+
+.text_right-align .contentTextWrapper {
+  align-items: center;
+  justify-self: end;
+}
+
+.contentEntries .layout_image-above-text {
+  align-self: center;
+  text-align: center;
+  padding: 0px 60px;
+}
+
+.margin20 {
+  margin: 20px;
+}
+.margin30 {
+  margin: 30px;
+}
+
+.padding20 {
+  padding: 20px;
+}
+
+.padding20h {
+  padding: initial 20px;
+}
+
+.padding30 {
+  padding: 30px;
+}
+.padding60 {
+  padding: 60px;
+}
+
+/* .text-padding60 .contentTextWrapper {
+  padding: 60px;
+} */
+
+.padding0 {
+  padding: 0px;
+}
+
+.grid-col-gap60 .contentEntries {
+  grid-column-gap: 60px;
+}
+
+/* .padding60h .contentTextWrapper {
+  padding: initial 60px;
+} */
+
+.padding30v .contentTextWrapper {
+  padding: 30px initial;
+}
+
+.justify-contents-center .contentTextWrapper {
+  justify-content: center;
+}
+
+/* .text-justify-center .contentTextWrapper {
+  justify-content: center;
+} */
+
+/* .standard-content .contentTextWrapper {
+  padding: 30px;
+} */
+
+.arrowlist {
+  display: flex;
+  align-items: center;
+  margin-block-start: 1em;
+  margin-block-end: 2em;
+}
+
+.arrowlist .contentTextWrapper {
+  padding-left: 20px;
+  padding-top: 0px !important;
+}
+.arrowlist .image {
+  align-self: flex-start;
+}
+
+.arrowlist .contentTextWrapper .text1 > p {
+  margin: 0px;
+}
+
+.justify-content-space-evenly .contentTextWrapper {
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10%;
+}
+
+.statue {
+  margin: 0px;
+  padding: 0px !important;
+  max-width: 400px;
+  align-self: baseline !important;
+}
+
+.statue .contentTextWrapper {
+  padding: 0px !important;
+  margin-top: 15px;
+}
+
+.statues .contentEntries {
+  margin-top: 60px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+  justify-content: space-around;
+  gap: 40px;
+}
+
+/* ================== */
+/* Magazine patterns  */
+/* ================== */
+@media only screen and (min-width: 992px) {
+  /* --- >992 --- */
+  .magazine .contentTextWrapper {
+    padding: var(--mag-padding-gt-992);
+  }
+
+  .padding20-60 {
+    padding: 60px;
+  }
+
+  .text-padding10-60 .contentTextWrapper {
+    padding: 60px;
+  }
+}
+
+@media only screen and (max-width: 991.8px) {
+  /* --- <992 --- */
+  .magazine .contentTextWrapper {
+    padding: var(--mag-padding-lt-992);
+  }
+
+  .padding20-60 {
+    padding: 20px;
+  }
+
+  .text-padding10-60 .contentTextWrapper {
+    padding: 10px;
+  }
+}
+
+/* padding */
+/* TODO Change .standard-content classname to .standardContent_contentWrapper (less generic) */
+
+
+.standard-margin {
+  margin: var(--standard-margin);
+}
+
+.standard-padding {
+  padding: var(--standard-padding);
+}
+
+.login-block {
+  width: fit-content;
+  height: auto;
+  margin: auto;
+  padding: 30px;
+}
+
+.login-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+.sr-only {
+  display: none;
+}
+
+input[type=email], input[type=password], input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}

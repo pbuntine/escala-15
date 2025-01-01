@@ -1,0 +1,25 @@
+/* === cookie-consent === */
+.CookieConsent {
+    color: var(--cookie-consent-color);
+    background: var(--cookie-consent-background-color);
+    font: var(--cookie-consent-font);
+    padding: 10px 5% 10px 5%;
+}
+
+.CookieConsent a {
+    color: var(--cookie-consent-link-color);
+}
+
+#rcc-confirm-button {    
+    color: var(--cookie-consent-button-color);
+    background: var(--cookie-consent-button-background-color);
+    font: var(--cookie-consent-button-font);
+    border: 0px;
+    border-radius: 8px;
+    box-shadow: none;
+    /* font-weight: 600; */
+    cursor: pointer;
+    flex: 0 0 auto;
+    padding: 5px 30px;
+    margin: 10px 20px 10px 20px;
+}
