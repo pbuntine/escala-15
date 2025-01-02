@@ -3,7 +3,6 @@ import { Entry } from "contentful";
 import {
   IPost,
   IPostCategory,
-  IPostCategoryFields,
 } from "../../../types/cf-types";
 import { fetchCFJSON } from "../../extraction/contentful/fetchCFData";
 import { parseTemplate } from "./trTemplates";
