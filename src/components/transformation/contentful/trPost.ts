@@ -134,27 +134,33 @@ export function transformPost(
   }
   const postClassNames = "post" + postClassName + postRendererClassName;
 
+  // HTML <head> details </head>
+  // ==============================
+  // Get the page details for the page's header
+  const pageHeadProps = {
+    pageTitle: entry.fields?.pagetitle || entry.fields?.name || "",
+    pageMetadescription: entry.fields?.metadescription || "",
+    pageKeywords: entry.fields?.keywords || "",
+    ogTitle: entry.fields?.ogtitle || entry.fields?.pagetitle || "",  
+    ogDescription: entry.fields?.ogdescription || "",
+    ogImage: entry.fields?.ogimage?.fields?.file?.url || "",
+  };
+
   const postDetails = {
     reactComponentPath:
       entry.fields?.renderer?.fields?.reactComponentPath || null,
     id: entry.sys.id,
-    name: entry.fields?.name,
+    name: entry.fields?.name || "",
     contentType: entry.sys.contentType?.sys.id,
     postName: entry.fields?.name || null,
     postSlugParent: entry.fields?.slugParent || null,
     postSlug: entry.fields?.slugPost || null,
-    pageTitle: entry.fields?.pagetitle || null,
-    pageMetadescription: entry.fields?.metadescription || null,
-    pageKeywords: entry.fields?.keywords || null,
-    ogTitle: entry.fields?.ogtitle || null,
-    ogDescription: entry.fields?.ogdescription || null,
-    ogImage: entry.fields?.ogimage?.fields?.file?.url || null,
     postPrimaryImage: entry.fields?.primaryimage?.fields?.file?.url || null,
     postPrimaryImageAltText: entry.fields?.primaryimagealttext || null,
-    postTitle: entry.fields?.title || null,
+    postTitle: entry.fields?.title || "",
     postSubtitle: entry.fields?.subtitle || null,
     postDate: postDate || null,
-    postAuthor: entry.fields?.author.fields.title || null,
+    postAuthor: entry.fields?.author?.fields?.title || null,
     postText: entry.fields?.text || null,
     postCategories: postCategories || null,
     postCategoriesList: postCategoriesList || null,
@@ -170,6 +176,7 @@ export function transformPost(
     postRelatedPosts: postRelatedPosts,
     postEntries: postEntries || null,
     postClassNames: postClassNames,
+    pageHeadProps: pageHeadProps,
   };
   return postDetails;
 }
