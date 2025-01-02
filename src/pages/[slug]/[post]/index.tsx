@@ -87,7 +87,8 @@ export default DynamicSlugPage;
 
 // See: https://wallis.dev/blog/nextjs-getstaticprops-and-getstaticpaths-with-typescript
 // !================================================================
-export const getStaticProps: GetStaticProps = async ({ slug, post }) => {
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug, post } = context.params as { slug: string; post: string };
   // !================================================================
   // const { slug, post } = context.params as IParams; // no longer causes error
 
