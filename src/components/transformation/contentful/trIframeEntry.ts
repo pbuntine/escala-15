@@ -16,7 +16,7 @@ export function transformIframe(entry: IIframe & { fields: { renderer?: { sys: {
   //   ${entry.fields?.options} />`;
 
   const iframeEntry = {
-    ReactComponentPath:
+    reactComponentPath:
       entry.fields.renderer?.fields?.reactComponentPath || null,
     id: entry.sys.id,
     name: entry.fields?.name,
