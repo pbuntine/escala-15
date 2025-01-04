@@ -1,6 +1,6 @@
 
-// This page just provides a permament redirect to the
-//  default home page as defined in CF
+// This page just provides a permanent redirect to the
+// default home page as defined in the .env file
 
 import React, { useEffect,useState } from "react";
 import Router from 'next/router'
@@ -20,7 +20,11 @@ const RootPage = ()=>{
             // the browser on history back will go back to this page and then forward again to the redirected page
             // you can prevent this behaviour using location.replace
             // Router.push(defaultSlug)
-           location.replace(defaultSlug)
+        if (defaultSlug) {
+            location.replace(defaultSlug);
+        } else {
+            console.error("Default slug is not defined");
+        }
         }else{
             setLoaded(true)
         }

@@ -47,7 +47,7 @@ export const HtmlHead = ({
   return (
     <>
       <Head>
-        <title>{pageHeadProps?.pageTitle || "Site"}</title>
+        {pageHeadProps?.pageTitle || process.env.NEXT_PUBLIC_SITE_URL || "Site"}</title>
         {globalHeadProps?.pageDescription && (
           <meta name="description" content={globalHeadProps.pageDescription} />
         )}
