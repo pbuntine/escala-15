@@ -187,7 +187,7 @@ export function transformPostSummary(entry: IPost) {
   if (entry.fields?.postCategories?.length) {
     postCategories = transformEntries(entry.fields.postCategories);
     for (let i = 0; i < postCategories?.length; i++) {
-      postCategoriesList[i] = postCategories[i].postcategoryTitle;
+      postCategoriesList[i] = postCategories[i].postCategoryTitle;
     }
   } else {
     postCategories = null;

@@ -1,4 +1,4 @@
-import { IescSlug } from "../../../types/esc-types";
+import { IescSlug, IescPostSlug } from "../../../types/esc-types";
 import { ISlug } from "../../../types/cf-types";
 
 export const allSlugsLookup = (slugItems: ISlug[]): IescSlug[] => {
@@ -23,14 +23,15 @@ export const allSlugsLookup = (slugItems: ISlug[]): IescSlug[] => {
   return allSlugs;
 };
 
-export const allPostsLookup = (slugItems: ISlug[]): IescSlug[] => {
+export const allPostsLookup = (slugItems: ISlug[]): IescPostSlug[] => {
   const slugs = slugItems.items
     .map((item) => item.fields.slugPost)
     .filter((item) => !!item);
     const allSlugs: IescSlug[] = [];
-    slugs.forEach((item: unknown, slugIndex: number) => {
+    slugs.forEach((item: { [key: string]: string }, slugIndex: number) => {
       Object.keys(item).forEach((locale, localeIndex) => {
-        allSlugs.push({ post: item[locale], slug: slugItems.items[slugIndex].fields.slugParent[locale], slugIndex, locale, localeIndex });
+        const slugParent = slugItems.items[slugIndex].fields.slugParent?.[locale] || '';
+        allSlugs.push({ post: item[locale], slug: slugParent, slugIndex, locale, localeIndex });
       });
     });
   

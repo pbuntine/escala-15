@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import Entries from "../entries/prEntries";
 import Image from "next/image";
 import React from "react";
-import { IescPost , Ientry } from "../../../types/esc-types";
+import { IescPost, Ientry } from "../../../types/esc-types";
 
 // Explanation:
 // This is called for each post by the DynamicRenderer from:

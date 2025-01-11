@@ -20,8 +20,6 @@ export default function ImgOnClick({ item }: { item: IimageItem }) {
     } else {
       DropDown.current = "no";
     }
-    console.log("DropDown");
-    console.log(DropDown);
   }
 
    
