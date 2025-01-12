@@ -3,7 +3,7 @@ const path = require("path");
 const { outputFileSync } = require("fs-extra");
 const { createClient } = require("contentful");
 const dotenv = require("dotenv");
-dotenv.config({ path: path.resolve(process.cwd(), ".env.development.local") });
+dotenv.config({ path: path.resolve(process.cwd(), ".env.production") });
 
 // const {
 //   fetchCFJSONAllLocales,
@@ -21,13 +21,14 @@ dotenv.config({ path: path.resolve(process.cwd(), ".env.development.local") });
 // Sitemap generated at /Users/your-username/your-project/public/sitemap.xml
 
 const client = createClient({
-  environment: process.env.CONTENTFUL_ENVIRONMENT,
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
-  host: process.env.HOST,
+  environment: process.env.NEXT_PUBLIC_CONTENTFUL_ENVIRONMENT,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN || "",
+  host: process.env.NEXT_PUBLIC_HOST,
 });
 
 let today = new Date();
+let lastmod = today.toISOString();
 let site_url = process.env.SITE_URL;
 
 // Get Slugs
@@ -106,15 +107,14 @@ async function generateSitemap() {
   const postsLocaleLookupTable = allPostsLookup(objPosts);
 
   // Create the sitemap file with /post pages
-  // Create the sitemap file with /slug pages
   const post_sitemap = postsLocaleLookupTable
-  .map(({ slug, post, locale }) => {
+  .map(({ slug, post }) => {
     return `
     <url>
-    <loc>${site_url}/${slug}/${post}</loc>
-    <lastmod>${today.toISOString().split("T")[0]}</lastmod>
+    <loc>https://${site_url}/${slug}/${post}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>1.0</priority>
     </url>`;
   })
   .join("");
@@ -122,19 +122,29 @@ async function generateSitemap() {
   
   // Create the sitemap file with /slug pages
   const slug_sitemap = slugsLocaleLookupTable
-  .map(({ slug, locale }) => {
+  // .map(({ slug, locale }) => {
+  .map(({ slug }) => {
     return `
     <url>
-    <loc>${site_url}/${slug}</loc>
-    <lastmod>${today.toISOString().split("T")[0]}</lastmod>
+    <loc>https://${site_url}/${slug}</loc>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
     </url>`;
   })
   .join("");
   
   // Add the two arrays together
-  const sitemap = slug_sitemap + post_sitemap;
+  const sitemap_entries = slug_sitemap + post_sitemap;
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    ${sitemap_entries}
+  </urlset>`;
 
   outputFileSync(outputPath, sitemap);
 
