@@ -39,9 +39,6 @@ export default function scPostListingWrapper({ item }) {
     " " +
     item?.contentRendererClassName;
 
-
-    console.log("scPostListingWrapper: ", item);
-    
   return (
     <div id={item.name} key={item.id} className={standardcontentClassNames}>
       <div className="contentTextWrapper">

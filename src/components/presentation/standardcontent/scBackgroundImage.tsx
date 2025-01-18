@@ -18,7 +18,11 @@ import { IescStandardContent } from "../../../types/esc-types";
 //   renderer entries
 // /div
 
-export default function scTextAndEntries({ item }: {item: IescStandardContent}) {
+export default function scTextAndEntries({
+  item,
+}: {
+  item: IescStandardContent;
+}) {
   const standardcontentClassNames =
     item.id +
     " " +
@@ -29,7 +33,6 @@ export default function scTextAndEntries({ item }: {item: IescStandardContent}) 
 
   // If it does have a RendererReactComponentPath, lazy load the Renderer and use it.
   // If it doesn't have a RendererReactComponentPath, use the standard renderer.
-  console.log("item", item);
 
   return (
     <div id={item.name} key={item.id} className={standardcontentClassNames}>

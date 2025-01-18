@@ -9,11 +9,7 @@ import { Iiframe } from "../../../types/esc-types";
 // it does not render any other properties
 // - eg. Entries or Images
 
-
-
 export default function iframeDefault({ item }: { item: Iiframe }) {
-  console.log("iframeDefault item: ", item);
-
   const iframe = `<iframe width = ${item.iframeWidth}
                       height=${item.iframeHeight}
                       title = ${item.iframeTitle}
@@ -43,7 +39,9 @@ export default function iframeDefault({ item }: { item: Iiframe }) {
           </div>
         )}
       </div>
-      {Array.isArray(item.contentEntries) && <Entries entries={item.contentEntries} />}
+      {Array.isArray(item.contentEntries) && (
+        <Entries entries={item.contentEntries} />
+      )}
       <div dangerouslySetInnerHTML={{ __html: iframe }}></div>
     </div>
   );

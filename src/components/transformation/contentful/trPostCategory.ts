@@ -2,12 +2,12 @@ import { transformEntries } from "./trEntries";
 import { IPost } from "../../types/cf-types";
 
 export function transformPostCategory(entry: IPost) {
-  let postcategoryEntries = [];
+  let postCategoryEntries = [];
 
   if (entry.fields.entries?.length) {
-    postcategoryEntries = transformEntries(entry.fields.entries);
+    postCategoryEntries = transformEntries(entry.fields.entries);
   } else {
-    postcategoryEntries = null;
+    postCategoryEntries = null;
   }
   
   // If there are no postEntries, it returns sys info, which you do not want.
@@ -18,21 +18,21 @@ export function transformPostCategory(entry: IPost) {
     rendererEntries = null;
   }
 
-  const postcategoryEntry = {
+  const postCategoryEntry = {
     reactComponentPath:entry.fields.renderer?.fields?.reactComponentPath,
     id: entry.sys.id,
-    postcategoryName: entry.fields?.name,
-    postcategoryTitle: entry.fields.title || null,
-    postcategorySubtitle: entry.fields.subtitle || null,
-    postcategoryText: entry.fields.text || null,
-    postcategoryACL: entry.fields.acl || null,
-    postcategoryID: entry.fields.id || null,
-    postcategoryClassName: entry.fields.className || "",
-    postcategoryRendererID: entry.fields.renderer?.sys.id || null,
-    postcategoryRendererClassName: entry.fields.renderer?.fields?.className || null,
-    postcategoryRendererACL: entry.fields.renderer?.fields?.acl || null,
-    postcategoryRendererEntries: rendererEntries || null,
-    postcategoryEntries: postcategoryEntries || null,
+    postCategoryName: entry.fields?.name,
+    postCategoryTitle: entry.fields.title || null,
+    postCategorySubtitle: entry.fields.subtitle || null,
+    postCategoryText: entry.fields.text || null,
+    postCategoryACL: entry.fields.acl || null,
+    postCategoryID: entry.fields.id || null,
+    postCategoryClassName: entry.fields.className || "",
+    postCategoryRendererID: entry.fields.renderer?.sys.id || null,
+    postCategoryRendererClassName: entry.fields.renderer?.fields?.className || null,
+    postCategoryRendererACL: entry.fields.renderer?.fields?.acl || null,
+    postCategoryRendererEntries: rendererEntries || null,
+    postCategoryEntries: postCategoryEntries || null,
   };
-  return postcategoryEntry;
+  return postCategoryEntry;
 }
