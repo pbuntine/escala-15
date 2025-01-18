@@ -6,14 +6,18 @@ const { execSync } = require('child_process');
 
 console.log("process.env.SITE_URL: ", process.env.SITE_URL);
 
-const CUSTOM_SITES_DIR = process.env.CUSTOM_SITES_DIR || path.resolve("/tmp");
+const CUSTOM_SITES_DIR = process.env.CUSTOM_SITES_DIR;
+if (!CUSTOM_SITES_DIR) {
+    console.error('\x1b[31m%s\x1b[0m', "CUSTOM_SITES_DIR is not defined in the environment variables.");
+    process.exit(1);
+}
 const SITE_URL = process.env.SITE_URL || "default";
-const NEXT_PUBLIC_CONTENT_VERSION = process.env.NEXT_PUBLIC_CONTENT_VERSION || "v1";
+const NEXT_PUBLIC_CONTENT_VERSION = process.env.NEXT_PUBLIC_CONTENT_VERSION || "undefined";
 const DEST_DIR = path.join(CUSTOM_SITES_DIR, SITE_URL, NEXT_PUBLIC_CONTENT_VERSION);
 const SOURCE_DIR = path.resolve("./");
 
 
-console.log(`Copying files from ${SOURCE_DIR} to ${DEST_DIR}`);
+console.log('\x1b[36m%s\x1b[0m', `Copying files from \x1b[33m${SOURCE_DIR}\x1b[36m to \x1b[32m${DEST_DIR}\x1b[36m`);
 
 
 // Ensure the source directory exists
@@ -78,4 +82,4 @@ patterns.forEach(pattern => {
     }
 });
 
-console.log("Copy process completed.");
+console.log('\x1b[32m%s\x1b[0m', "Copy process completed.");
