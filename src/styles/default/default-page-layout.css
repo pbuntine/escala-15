@@ -15,9 +15,6 @@ https://ilxanlar.medium.com/you-shouldnt-rely-on-css-100vh-and-here-s-why-1b4721
   min-height: -moz-available;
   min-height: -webkit-fill-available;
   min-height: stretch;
-}
-
-.bodyWrapper {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
@@ -30,9 +27,10 @@ https://ilxanlar.medium.com/you-shouldnt-rely-on-css-100vh-and-here-s-why-1b4721
   grid-area: header;
 }
 
+/* Possibly overflow needs to be turned on or off in different circumstances */
 .pageWrapper {
   grid-area: main;
-  /* overflow: auto !important; */
+  overflow: auto !important;
 }
 
 /* -------------------------- */
