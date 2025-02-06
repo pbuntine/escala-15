@@ -5,6 +5,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 console.log("process.env.SITE_URL: ", process.env.SITE_URL);
+console.log("process.env.NEXT_PUBLIC_CONTENT_VERSION: ", process.env.NEXT_PUBLIC_CONTENT_VERSION);
 
 const CUSTOM_SITES_DIR = process.env.CUSTOM_SITES_DIR;
 if (!CUSTOM_SITES_DIR) {
