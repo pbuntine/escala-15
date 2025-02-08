@@ -27,10 +27,12 @@ https://ilxanlar.medium.com/you-shouldnt-rely-on-css-100vh-and-here-s-why-1b4721
   grid-area: header;
 }
 
-/* Possibly overflow needs to be turned on or off in different circumstances */
+/* Possibly overflow needs to be turned on or off in different circumstances.
+For example: overflow is incompatible with the sticky nav bar.
+*/
 .pageWrapper {
   grid-area: main;
-  overflow: auto !important;
+  /* overflow: auto !important; */
 }
 
 /* -------------------------- */

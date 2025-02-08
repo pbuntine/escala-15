@@ -33,6 +33,12 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+/* Nextjs automatically adds its own container wrapper <div id="__next"> as the root container for the app */
+#__next {
+  display: grid;
+  min-height: 100vh;
+}
+
 *,
 :after,
 :before {
