@@ -53,22 +53,20 @@ function DynamicSlugPage({
   // TODO: Change contents to entries everywhere and reduce the types to just one.
 
   return (
-    <>
-      <div id="pageWrapper" className="pageWrapper" key="props.ThisTemplate.id">
-        <Header
-          contents={ThisTemplate?.HeaderEntries}
-          reactComponentPath={ThisTemplate?.reactComponentPath}
-          key="header"
-        />
-        <div className="postBreadcrumbs">
-          <Link href={postBreadcrumb} className="postPage-backlink">
-            {slug}
-          </Link>
-        </div>
-        <div className="postBody">
-          <Entries entries={ThisPageDetails.postRendererEntries} />
-          <DefaultPost item={ThisPageDetails} />
-        </div>
+    <div id="pageWrapper" className="pageWrapper" key="props.ThisTemplate.id">
+      <Header
+        contents={ThisTemplate?.HeaderEntries}
+        reactComponentPath={ThisTemplate?.reactComponentPath}
+        key="header"
+      />
+      <div className="postBreadcrumbs">
+        <Link href={postBreadcrumb} className="postPage-backlink">
+          {slug}
+        </Link>
+      </div>
+      <div className="postBody">
+        <Entries entries={ThisPageDetails.postRendererEntries} />
+        <DefaultPost item={ThisPageDetails} />
       </div>
       <Footer contents={ThisTemplate?.FooterEntries} key="footer" />
       {CookieConsentText && (
@@ -80,7 +78,7 @@ function DynamicSlugPage({
           <div dangerouslySetInnerHTML={{ __html: CookieConsentText }}></div>
         </CookieConsent>
       )}
-    </>
+    </div>
   );
 }
 export default DynamicSlugPage;
