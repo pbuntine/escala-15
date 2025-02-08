@@ -12,7 +12,7 @@ Navigation bar style
   font: var(--nav-links-font);
   color: var(--nav-links-color);
   text-align: left;
-  letter-spacing: 0px;
+  letter-spacing: 0;
   opacity: 1;
   text-decoration: none !important;
 }
@@ -24,7 +24,7 @@ Navigation bar style
 .navlinksWrapper a {
   cursor: pointer;
   padding: 0;
-  text-wrap-mode: nowrap;
+  white-space: nowrap;
 }
 
 .navlinksWrapper a:hover {
@@ -39,7 +39,7 @@ Navigation bar style
   top: 0;
   width: 100%;
   background-color: var(--wrapperHeader-background);
-  align-items: start;
+  align-items: flex-start;
   padding: 17px;
 }
 
@@ -82,8 +82,7 @@ Navigation bar style
   }
 
   .navlinksWrapper .linkWrapper {
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding: 0 1rem;
   }
 }
 
@@ -102,16 +101,16 @@ Navigation bar style
   }
 
   .dropNav {
-    align-items: end;
+    align-items: flex-end;
     margin-top: 50px;
   }
 
   .navLogo img {
-    margin-left: 0px;
+    margin-left: 0;
   }
 
   #hamburger, #hamburger-x {
-    justify-self: end;
+    justify-self: flex-end;
     cursor: pointer;
   }
 }
