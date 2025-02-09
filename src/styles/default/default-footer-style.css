@@ -166,6 +166,10 @@ a.footer-link {
   #footer-credits .contentEntries {
     align-items: flex-start;
   }
+
+  #copyrightText .contentTextWrapper {
+    padding: 0px 0px 30px 0px;
+  }
 }
 
 /* Copyright */
@@ -180,7 +184,7 @@ a.footer-link {
   opacity: 1;
 }
 
-.standard-content.copyrightText  .text1 p {
+.standard-content.copyrightText .text1 p {
   font: var(--footer-copyRight);
   color: var(--footer-copyRight-color);
   text-align: left;
