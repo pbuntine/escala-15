@@ -72,3 +72,22 @@ This will also run the sitemap generator.
 
 ## To run the app as a service
 
+## Upload prod site to AWS 
+### Build the site
+```bash
+npm run build
+```
+This will also build the sitemap.xml
+
+### Export fresh AWS credentials
+Using the terminal you wish to use:
+```bash
+aws sso login
+```
+
+Then run:
+```bash
+npm run pubProd
+```
+
+In order to see the site immediately, kill the cache.
