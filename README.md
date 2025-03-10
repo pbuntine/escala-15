@@ -72,6 +72,48 @@ This will also run the sitemap generator.
 
 ## To run the app as a service
 
+List current services:  
+> systemctl list-units --type=service --all
+
+Create a new service cfg:
+> sudo nano /etc/systemd/system/<esc-servicename>.service
+>
+
+Start a new service:
+> sudo systemctl start <esc-servicename>.service
+
+Stop a service:
+> sudo systemctl stop <esc-servicename>.service
+
+Restart a service:
+> sudo systemctl restart <esc-servicename>.service
+
+Get the status of a service:
+> sudo systemctl status <esc-servicename>.service
+
+Enable a new port through the firewall:
+> sudo ufw allow <3000 or whatever>
+
+
+## Deploy a new version to the dev server
+
+ssh in to the server, then
+> cd $DEV_SITES_DIR
+to delete an existing: 
+> rm -rf <site-instance>
+
+> git clone https://github.com/pbuntine/escala-15.git
+>
+
+Then go to your local dev machine and run:
+> npm run pushCustom
+
+Returning to the remote server:
+> npm install
+> npm run dev
+
+If no error, then set the application up as a service
+
 ## Upload prod site to AWS 
 ### Build the site
 ```bash
