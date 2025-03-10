@@ -2,7 +2,6 @@
 require("dotenv").config({ path: ".env.production" });
 const { execSync } = require("child_process");
 const path = require("path");
-const fs = require("fs");
 
 const SITE_URL = process.env.SITE_URL;
 if (!SITE_URL) {
@@ -51,7 +50,24 @@ if (fs.existsSync(srcPath)) {
   return;
 }
 
+// Invalidate the CloudFront distribution (delete the CloudFront cache)
+// To invalidate the Amazon CloudFront distribution, you need to use the AWS CLI.
+// To create an AWS CLI command for invalidating an Amazon CloudFront distribution, use the following command:
+// check if CLOUDFRONT_DISTRIBUTION_ID is defined in the local .env.production
+const CLOUDFRONT_DISTRIBUTION_ID = process.env.CLOUDFRONT_DISTRIBUTION_ID;
+if (!CLOUDFRONT_DISTRIBUTION_ID) {
+  console.error(
+    "\x1b[31m%s\x1b[0m",
+    "CLOUDFRONT_DISTRIBUTION_ID is not defined in the local .env.production."
+  );
+  process.exit(1);
+}
 
-// To create an AWS CLI command for invalidating an Amazon CloudFront distribution, use the following command: 
-// aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
+try {
+  execSync(`aws cloudfront create-invalidation --distribution-id ${CLOUDFRONT_DISTRIBUTION_ID} --paths "/*"`);
+  console.log(`Invalidated: ${SITE_URL}`);
+} catch (error) {
+  console.error(`Failed to invalidate CloudFront distribution: ${CLOUDFRONT_DISTRIBUTION_ID}`, error);
+}
+
 console.log("\x1b[32m%s\x1b[0m", "Sync process completed.");

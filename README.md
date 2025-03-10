@@ -133,3 +133,6 @@ npm run pubProd
 ```
 
 In order to see the site immediately, kill the cache.
+```bash
+aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
+```
