@@ -2,6 +2,7 @@
 require("dotenv").config({ path: ".env.production" });
 const { execSync } = require("child_process");
 const path = require("path");
+const fs = require("fs");
 
 const SITE_URL = process.env.SITE_URL;
 if (!SITE_URL) {
@@ -47,7 +48,9 @@ if (fs.existsSync(srcPath)) {
   } catch (error) {
     console.error(`Failed to sync: ${SITE_URL}`, error);
   }
-  return;
+} else {
+  console.error(`Source directory does not exist: ${srcPath}`);
+  process.exit(1);
 }
 
 // Invalidate the CloudFront distribution (delete the CloudFront cache)

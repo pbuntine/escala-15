@@ -127,6 +127,8 @@ Using the terminal you wish to use:
 aws sso login
 ```
 
+or set up and use a saved link to 'AWS access portal'
+
 Then run:
 ```bash
 npm run pubProd
@@ -136,3 +138,54 @@ In order to see the site immediately, kill the cache.
 ```bash
 aws cloudfront create-invalidation --distribution-id YOUR_DISTRIBUTION_ID --paths "/*"
 ```
+
+# STS User
+how do i set up aws sts for a new user?
+
+Attach Permissions to Allow STS Usage
+
+The user needs permissions to assume roles using STS. You can attach an inline policy or a managed policy.
+
+Option 1: Attach an Inline Policy
+
+Create a JSON policy file (e.g., sts-policy.json):
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "sts:AssumeRole",
+            "Resource": "arn:aws:iam::123456789012:role/MyRole"
+        }
+    ]
+}
+
+Replace:
+	•	123456789012 with your AWS account ID.
+	•	MyRole with the IAM role the user should assume.
+
+Then, attach it to the user:
+aws iam put-user-policy --user-name NewUserName --policy-name STS-AssumeRole --policy-document file://sts-policy.json
+
+Create Access Keys (For CLI Usage)
+
+Generate access keys for the user (needed for CLI authentication):
+aws iam create-access-key --user-name NewUserName
+
+
+Configure AWS CLI with New Credentials
+
+On the user’s system, configure the AWS CLI:
+aws configure
+
+Enter the credentials:
+	•	AWS Access Key ID: AKIAEXAMPLE123456
+	•	AWS Secret Access Key: EXAMPLESECRETKEY
+	•	Default region: Your AWS region (e.g., us-east-1)
+	•	Output format: json (or text/table)
+
+
+Verify STS Access
+
+Test if the user can call STS:
+aws sts get-caller-identity

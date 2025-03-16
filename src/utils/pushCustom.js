@@ -2,7 +2,6 @@
 require("dotenv").config({ path: ".env.development" });
 const { execSync } = require("child_process");
 const path = require("path");
-const fs = require("fs");
 
 // Check for a parameter in the command line when running this using npm run pushCustom
 const args = process.argv.slice(2); // Exclude first two default arguments
@@ -55,7 +54,7 @@ try {
 } catch (error) {
   console.error(
     "\x1b[31m%s\x1b[0m",
-    "Failed to establish SSH connection to the remote server."
+    "Failed to establish SSH connection to the remote server." + error
   );
   process.exit(1);
 }
@@ -94,7 +93,7 @@ try {
 } catch (error) {
   console.error(
     "\x1b[31m%s\x1b[0m",
-    `Failed to access the destination directory: ${DEST_DIR}`
+    `Failed to access the destination directory: ${DEST_DIR}` + error
   );
   process.exit(1);
 }
