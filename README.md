@@ -102,7 +102,7 @@ ssh in to the server, then
 to delete an existing: 
 > rm -rf <site-instance>
 
-> git clone https://github.com/pbuntine/escala-15.git
+> git clone https://github.com/pbuntine/escala-15.git <project-name>
 >
 
 Then go to your local dev machine and run:
