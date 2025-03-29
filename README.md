@@ -96,13 +96,14 @@ Enable a new port through the firewall:
 
 
 ## Deploy a new version to the dev server
+Note: <SITE_SUBDIR> must be assigned in the .end.development.
 
 ssh in to the server, then
 > cd $DEV_SITES_DIR
 to delete an existing: 
-> rm -rf <site-instance>
+> rm -rf $DEV_SITES_DIR/<SITE_SUBDIR>
 
-> git clone https://github.com/pbuntine/escala-15.git <project-name>
+> git clone https://github.com/pbuntine/escala-15.git $DEV_SITES_DIR/<SITE_SUBDIR>
 >
 
 Then go to your local dev machine and run:
@@ -189,3 +190,34 @@ Verify STS Access
 
 Test if the user can call STS:
 aws sts get-caller-identity
+
+
+# Create a new site
+
+Like with deploying to a dev server
+Note: <SITE_SUBDIR> must be specified and correspond in the .env.development.
+
+## Create the new site
+
+to delete an existing: 
+> rm -rf $DEV_SITES_DIR/<SITE_SUBDIR>
+
+> git clone https://github.com/pbuntine/escala-15.git $DEV_SITES_DIR/<SITE_SUBDIR>
+
+In VSC terminal , add the new project
+> code add $DEV_SITES_DIR/<SITE_SUBDIR>
+Copy the base custom files
+> mkdir -p $CUSTOM_SITES_DIR/<SITE_URL>/<SITE_VERSION>
+>cp -rv $CUSTOM_SITES_DIR/base.escala.cloud/2.3.0/ $CUSTOM_SITES_DIR/<SITE_URL>/<SITE_VERSION>/
+where <SITE_URL> and <SITE_VERSION> must be specified and correspond in the .env.development.
+
+## Things to update in $CUSTOM_SITES_DIR/<SITE_URL>/<SITE_VERSION> folder
+
+### package.json
+  "name": "www.escala.cloud-15-2.3.0",
+  "version": "15.0",
+  "scripts": {
+    "dev": "PORT=3011 next dev",
+ 
+### .env.development and .env.production
+Basically everything...
