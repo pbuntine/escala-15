@@ -36,16 +36,16 @@ export default function scTextAndEntries({
 
   return (
     <div id={item.name} key={item.id} className={standardcontentClassNames}>
-      {/* <style jsx>{`
+      <style jsx>{`
         #${item.name} {
-          background-image: url(${item?.contentEntries?[0]?.imageURL ?? ''});
+          background-image: url(${item?.contentEntries?.[0]?.imageURL ?? ''});
           background-repeat: no-repeat;
           -webkit-box-pack: end;
           background-position: center center;
           background-repeat: no-repeat;
           background-size: cover;
         }
-      `}</style> */}
+      `}</style>
       <div className="contentTextWrapper">
         {item.contentTitle && (
           <div className="title">
